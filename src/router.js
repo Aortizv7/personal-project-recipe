@@ -8,8 +8,8 @@ import App from './App';
 export default (
     <div>
         <Switch>
-            <Route exact path='/' component={App} />
-            <Route path='/recipe/detail/' component={RecipeDetail} />
+            {/* <Route exact path='/' component={App} />
+            <Route path='/recipe/detail/' component={RecipeDetail} /> */}
             <Route path='/profile/edit' component={ProfileDetail} />
             <Route path='/profile' component={Profile} />
         </Switch>
