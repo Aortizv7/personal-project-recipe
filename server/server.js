@@ -49,18 +49,12 @@ app.get('/api/search', (req, res) => {
     }
 })
 
-app.get('/api/recipe', (req, res) => {
-    if (req.params.id) {
-        axios.get(`http://food2fork.com/api/get?key=${API_KEY}&rId=${req.params.id}`).then(response => {
-            res.status(200).send(response.data)
-        })
-    } else {
-        axios.get(`http://food2fork.com/api/search?key=${API_KEY}`).then(response => {
-            res.status(200).send(response.data)
-        }).catch(error => console.log(error))
-    }
-})
 
+app.get('/api/recipe/:id',(req,res)=>{
+    axios.get(`http://food2fork.com/api/get?key=${API_KEY}&rId=${req.params.id}`).then(response=>{
+        res.status(200).send(response.data)
+    }).catch(error=>console.log(error))
+})
 
 
 

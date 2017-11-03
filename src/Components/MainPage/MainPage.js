@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './MainPage.css';
 import { Link } from 'react-router-dom';
-import { getAllRecipes, searchAllRecipes } from '../../utils/api';
+import { getAllRecipes, searchAllRecipes} from '../../utils/api';
 
 export default class NavBar extends Component {
     constructor() {
@@ -34,24 +34,25 @@ export default class NavBar extends Component {
                 recipes: res.data.recipes
             })
         })
-
     }
     render() {
         var filteredRecipes = this.state.recipes.map((e, i) => {
             return (
                 <div className='margin' key={i}>
+                    <h1>ID:{e.recipe_id}</h1>
                     <h2>Title: {e.title}</h2>
-                    <Link to={`/recipe/detail/${e.recipe_id}`}><img className='img'
+                    <Link to ={`/recipe/detail/${e.recipe_id}`}>
+                    <img className='img'
                         src={e.image_url}
                         alt='recipe pic' />
-
                     </Link>
                     <h3>Rank: {Math.floor(e.social_rank)}</h3>
                 </div>
             )
         })
+
         return (
-            <main>
+            <main className='background'>
                 <div className='navPositioning'>
                     <input type='text'
                         placeholder='Search by Ingredients or Recipe Name'

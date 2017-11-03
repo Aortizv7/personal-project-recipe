@@ -9,5 +9,5 @@ export function searchAllRecipes(term) {
 }
 
 export function getRecipeDetail(id){
-    return axios.get(`/api/recipe/:id=${id}`)
+    return axios.get(`/api/recipe/${id}`)
 }
