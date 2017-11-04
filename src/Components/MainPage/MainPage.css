@@ -1,3 +1,23 @@
+/* .mainPage_background{ */
+ body{
+ width:100%;
+ height:200vh;
+ background-repeat: no-repeat;
+ background-image: url('./../../assets/peter-wendt-123928.jpg');
+  }
+
+.mainPage_navBackground{
+ border:3px solid #353535;
+ width:100%; 
+ height:8vh;
+ padding:5px;
+ /* position: absolute; */
+ background:#19b432d2;
+ display: flex;
+ align-items: center;
+ /* position: fixed;
+ top:0; */
+}
 .input_box{
  width:25vw;
  height: 5vh;
@@ -5,37 +25,32 @@
  margin-left:90px;
 }
 .search_button{
-    width:10vw;
-    height:6vh;
-    margin:1px;
-    border-radius: 5px;
-}
-.mainPage_navBackground{
- border:3px solid #353535;
- width:100%; 
- height:8vh;
- position: absolute;
- background:#858383;
- display: flex;
- align-items: center;
- position: fixed;
- top:0;
+ width:10vw;
+ height:6vh;
+ margin:1px;
+ border-radius: 5px;
 }
 
-.mainPage_background{
-    width:100%;
-    height:300vh;
-    background-repeat: no-repeat;
-    background-image: url('./../../assets/peter-wendt-123928.jpg');
+.mainPage_menu{
+    width:20%;
+    height:5vh;
+    background: violet;
+   
 }
+.mainPage_menu_options{
+    display: flex;
+    justify-content: space-around;
+}
+
 
 .mainPage_main_content{
     width:100%;
-    margin-top:75px;
-    border:3px solid black;
+    margin-top:50px;
+    /* border:3px solid black; */
     display:flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    /* justify-content: space-between; */
 }
 .mainPage_recipe_info{
     width:25%;
@@ -50,5 +65,4 @@
     width:250px;
     height:200px;
     border-radius: 10px;
-    
 }
