@@ -40,7 +40,7 @@ componentWillMount() {
            )
        })
        return(
-           <div>
+           <div className='recipeDetail_background'>
             {individualRecipe}
             <Link to='/search'><button>Back</button></Link>
             <button /*onClick={this.addToFavorites}*/>Favorite</button>

@@ -13,7 +13,7 @@
 .mainPage_navBackground{
  border:3px solid #353535;
  width:100%; 
- height:7vh;
+ height:8vh;
  position: absolute;
  background:#858383;
  display: flex;
@@ -24,28 +24,27 @@
 
 .mainPage_background{
     width:100%;
-    height:400vh;
+    height:300vh;
     background-repeat: no-repeat;
-    background-image: url('./../../assets/brooke-lark-230140.jpg');
+    background-image: url('./../../assets/peter-wendt-123928.jpg');
 }
 
 .mainPage_main_content{
     width:100%;
     margin-top:75px;
-    
     border:3px solid black;
     display:flex;
     flex-wrap: wrap;
     justify-content: space-around;
 }
-.recipe_info{
+.mainPage_recipe_info{
     width:25%;
     padding:10px;
     margin:10px;
     border-radius: 10px;
-    background: rgba(192, 189, 189, 0.329);
+    background: rgba(226, 216, 216, 0.623);
     /* box-shadow: 13px 14px 31px 13px rgba(199,183,199,0.24);  */
-    border:2px dotted red;
+    /* border:2px dotted red; */
 }
 .mainPage_recipe_img{
     width:250px;
