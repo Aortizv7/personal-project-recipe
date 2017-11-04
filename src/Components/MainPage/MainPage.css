@@ -2,6 +2,7 @@
  width:25vw;
  height: 5vh;
  margin:1px;
+ margin-left:90px;
 }
 .search_button{
     width:10vw;
@@ -9,7 +10,7 @@
     margin:1px;
     border-radius: 5px;
 }
-.navBackground{
+.mainPage_navBackground{
  border:3px solid #353535;
  width:100%; 
  height:7vh;
@@ -20,39 +21,24 @@
  position: fixed;
  top:0;
 }
-.navPositioning{
-    width:50%;
-    height:5vh;
-    margin-left: 50px;
-    display: flex;
-    align-content: center;
 
-}
-/* .options_position{
-    width:40%;
-    height: 5vh;
-    margin-left:200px;
-    display:flex;
-    align-items: center;
-    justify-content: space-between;
-} */
-.background{
+.mainPage_background{
     width:100%;
     height:400vh;
     background-repeat: no-repeat;
     background-image: url('./../../assets/brooke-lark-230140.jpg');
 }
 
-.main_content{
+.mainPage_main_content{
     width:100%;
-    margin-top:50px;
+    margin-top:75px;
     
     border:3px solid black;
     display:flex;
     flex-wrap: wrap;
     justify-content: space-around;
 }
-.margin{
+.recipe_info{
     width:25%;
     padding:10px;
     margin:10px;
@@ -61,7 +47,7 @@
     /* box-shadow: 13px 14px 31px 13px rgba(199,183,199,0.24);  */
     border:2px dotted red;
 }
-img{
+.mainPage_recipe_img{
     width:250px;
     height:200px;
     border-radius: 10px;

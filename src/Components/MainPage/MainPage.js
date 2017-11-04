@@ -38,11 +38,10 @@ export default class NavBar extends Component {
     render() {
         var filteredRecipes = this.state.recipes.map((e, i) => {
             return (
-                <div className='margin' key={i}>
-                    <h1>ID:{e.recipe_id}</h1>
+                <div className='mainPage_recipe_info' key={i}>
                     <h2>Title: {e.title}</h2>
                     <Link to ={`/recipe/detail/${e.recipe_id}`}>
-                    <img className='img'
+                    <img className='mainPage_recipe_img'
                         src={e.image_url}
                         alt='recipe pic' />
                     </Link>
@@ -52,8 +51,8 @@ export default class NavBar extends Component {
         })
 
         return (
-            <main className='background'>
-                <div className='navPositioning'>
+            <main className='mainPage_background'>
+                <div className='mainPage_navBackground'>
                     <input type='text'
                         placeholder='Search by Ingredients or Recipe Name'
                         className='input_box'
@@ -63,7 +62,7 @@ export default class NavBar extends Component {
                         onClick={this.handleClick}>Search</button>
                 </div>
                 <div className='wrap'>
-                    <div className='main_content'>
+                    <div className='mainPage_main_content'>
                         {filteredRecipes}
                     </div>
                 </div>

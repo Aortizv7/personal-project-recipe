@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './RecipeDetail.css';
 import { getRecipeDetail } from '../../utils/api';
+import {Link} from 'react-router-dom';
 
 export default class RecipeDetail extends Component {
    constructor(props){
@@ -8,8 +9,11 @@ export default class RecipeDetail extends Component {
        this.state={
         recipe:[]
        }
+    //    this.addToFavorites=this.addToFavorites.bind(this)
    }
+// addToFavorites(){
 
+// }
 componentWillMount() {
     getRecipeDetail(this.props.match.params.id).then(res=>{
         this.setState({recipe:this.state.recipe.concat([{ ...res.data.recipe }]) })
@@ -36,8 +40,10 @@ componentWillMount() {
            )
        })
        return(
-           <div>this is the place for recipe details
+           <div>
             {individualRecipe}
+            <Link to='/search'><button>Back</button></Link>
+            <button /*onClick={this.addToFavorites}*/>Favorite</button>
            </div>
        )
    }

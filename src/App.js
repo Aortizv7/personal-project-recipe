@@ -5,7 +5,7 @@ import router from './router.js';
 class App extends Component {
   render() {
     return (
-      <div  className='background'>
+      <div>
        {router}
       </div>
     );

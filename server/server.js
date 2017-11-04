@@ -11,31 +11,90 @@ const express = require('express')
 
 const app = express();
 
+//this is my middleware//
 app.use(bodyParser.json());
 app.use(cors());
-massive(process.env.CONNECTION_STRING).then(db =>
-    app.set('db', db)
-);
 
+
+
+//this will save the users session to keep them loged in for a while//
 app.use(session({
     secret: process.env.SECRET,
     resave: false,
     saveUninitialized: true
 }));
 
+//Passport goes here //
 app.use(passport.initialize());
 app.use(passport.session());
 
+massive(process.env.CONNECTION_STRING).then(db =>
+    app.set('db', db)
+);
+
+// I will set up the auth0 authentication here //
 passport.use(new Auth0Strategy({
     domain: process.env.DOMAIN,
     clientID: process.env.CLIENT_ID,
     clientSecret: process.env.CLIENT_SECRET,
     callbackURL: process.env.AUTH_CALLBACK
-},(accessToken, refreshToken, extraParams, profile, done)=>{
-        const db= app.get('db')
-    }))
+}, function (acessToken, refreshToken, extraParams, profile, done) {
+    //check if the user exists in users table
+    //if they do, invoke done with user's id
+    //if not, then we will create a new user
+    //then invoke done with new user's id
+    const db = app.get('db');
+    const userData = profile._json;
+    db.find_user([userData.identities[0].user_id]).then(user => {
+        if (user[0]) {
+            return done(null, user[0].id);
+        } else {
+            db.create_user([
+                userData.name,
+                userData.email,
+                userData.picture,
+                userData.identities[0].user_id
+            ]).then(user => {
+                return done(null, user[0].id)
+            })
+        }
+    })
 
-// console.log(`this is what app is : ${app}`)
+}))
+passport.serializeUser((id, done) => {
+    done(null, id)
+    console.log(id)
+})
+passport.deserializeUser((id, done) => {
+    app.get('db').find_session_user([id]).then(user => {
+        done(null, user[0]);
+    })
+})
+
+app.get('/auth', passport.authenticate('auth0'));
+app.get('/auth/callback', passport.authenticate('auth0', {
+    successRedirect: 'http://localhost:3000/#/search',
+    failureRedirect: '/auth'
+}))
+
+app.get('/auth/me',(req,res)=>{
+    if(req.user){
+        return res.status(200).send(req.user)
+    }else{
+        return res.status(401).send(`You Need To Log In`)
+    }
+})
+
+app.get('/logout',(req,res)=>{
+    req.logout()
+    res.redirect('http://localhost:3000/')
+})
+
+
+//these are my axios calls that talk to the front end to get the recipe info//
+
+//this one gets the initial search as well as any query i.e. if a customer
+//wants to search by ingredients or keywords or recipe name it is done here//
 
 app.get('/api/search', (req, res) => {
     if (req.query.term) {
@@ -49,6 +108,7 @@ app.get('/api/search', (req, res) => {
     }
 })
 
+// this is continued on axios requests but this one gets individual recipes paramed by id
 
 app.get('/api/recipe/:id',(req,res)=>{
     axios.get(`http://food2fork.com/api/get?key=${API_KEY}&rId=${req.params.id}`).then(response=>{

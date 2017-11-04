@@ -1,27 +1,37 @@
 import React, { Component } from 'react';
-
+import './Profile.css'
+import { getUserInfo } from '../../utils/api';
 
 export default class Profile extends Component {
-    render() {
+    constructor() {
+        super()
+        this.state = {
+            userData: null
+        }
+    }
 
+    componentDidMount() {
+        getUserInfo().then(res => {
+            console.log(res)
+            this.setState({ userData: res.data })
+        })
+    }
+
+    render() {
+        let user = this.state.userData
+        let userInfo = this.state.userData ?
+            <div className='user_info' >
+                <img src={user.img} alt='avatar' />
+                <p>Username:{user.user_name}</p>
+                <p>Email:{user.email}</p>
+            </div>
+            : null
 
         return (
             <div>
-               <div> <nav>
-                    <ul>
-                        <li>Home</li>
-                        <li>Profile</li>
-                        <li>LogIn/LogOut</li>
-
-                    </ul>
-                </nav>
-                </div>
-                <section className='user_info'>
-                <img alt='user_avatar'/>
-                <h2>Name:</h2>
-                <h4>email:</h4>
-                <button>Edit</button>
-                </section>
+                {userInfo}
+               <a href='http://localhost:3535/logout'> <button>Log Out</button>
+               </a> 
                 <section className='favorite recipes'>
                     <div>
                         <h2>Your Favorite Recipes</h2>
