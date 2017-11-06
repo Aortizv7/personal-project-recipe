@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import './Profile.css'
+import './Profile.css';
+import { Link } from 'react-router-dom';
 import { getUserInfo } from '../../utils/api';
 
 export default class Profile extends Component {
@@ -30,8 +31,12 @@ export default class Profile extends Component {
         return (
             <div>
                 {userInfo}
-               <a href='http://localhost:3535/logout'> <button>Log Out</button>
-               </a> 
+                <a href='http://localhost:3535/logout'>
+                    <button>Log Out</button>
+                </a>
+                <Link to='/search'>
+                    <button>Back to Search</button>
+                </Link>
                 <section className='favorite recipes'>
                     <div>
                         <h2>Your Favorite Recipes</h2>

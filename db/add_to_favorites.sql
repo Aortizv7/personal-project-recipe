@@ -7,3 +7,6 @@ favorites table with the user_id matches
 it will need to be an insert into 
 */
 
+insert into table favorites 
+where recipe_id = $1;
+

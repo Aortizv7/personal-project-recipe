@@ -68,8 +68,8 @@ export default class NavBar extends Component {
                                 <li>Profile</li>
                             </Link>
                             <a href='http://localhost:3535/logout'>
-                                <li>Log Out</li
-                                ></a>
+                                <li>Log Out</li>
+                            </a>
                         </ul>
                     </div>
                 </div>
@@ -77,7 +77,7 @@ export default class NavBar extends Component {
                 <div className='wrap'>
                     <div className='mainPage_main_content'>
                         {filteredRecipes}
-                      
+
                     </div>
                 </div>
             </main>

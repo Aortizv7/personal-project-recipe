@@ -47,16 +47,17 @@ export default class RecipeDetail extends Component {
         })
         return (
             <div className='recipeDetail_background'>
-                <div>
-                    <nav>
-                        <ul>
+                <nav className='recipeDetail_nav'>
+                    <ul>
+                        <Link to='/profile'>
                             <li>Profile</li>
+                        </Link>
+                        <a href='http://localhost:3535/logout'>
                             <li>Log Out</li>
-                        </ul>
-                    </nav>
-                </div>
+                        </a>
+                    </ul>
+                </nav>
                 {individualRecipe}
-
             </div>
         )
     }

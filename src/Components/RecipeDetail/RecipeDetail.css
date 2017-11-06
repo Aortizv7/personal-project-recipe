@@ -10,3 +10,9 @@
     height:100vh;
     background: rgba(199, 194, 194, 0.555);
 }
+
+.recipeDetail_nav{
+    width:50%;
+    height:10vh;
+    background: rgba(137, 45, 160, 0.5);
+}
