@@ -39,7 +39,7 @@ export default class RecipeDetail extends Component {
                     <h3>For Detailed Instructions Please Click
                   <a href={e.source_url} target='_blank'> Here</a>
                     </h3>
-                    <p>ingredients:{ingredients}</p>
+                    <p>Ingredients:{ingredients}</p>
                     <Link to='/search'><button>Back</button></Link>
                     <button /*onClick={this.addToFavorites}*/>Add to Favorites</button>
                 </div>

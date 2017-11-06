@@ -35,17 +35,18 @@ export default class NavBar extends Component {
             })
         })
     }
+    
     render() {
         var filteredRecipes = this.state.recipes.map((e, i) => {
             return (
                 <div className='mainPage_recipe_info' key={i}>
-                    <h2>Title: {e.title}</h2>
+                    <h2>{e.title}</h2>
                     <Link to={`/recipe/detail/${e.recipe_id}`}>
                         <img className='mainPage_recipe_img'
                             src={e.image_url}
                             alt='recipe pic' />
                     </Link>
-                    <h3>Rank: {Math.floor(e.social_rank)}</h3>
+                    <h3>Social Rank: {Math.floor(e.social_rank)}</h3>
                     <button>{/*this button will have to take an onclick event 
                     to add the recipe_id into the favorites table */}Add to Favorites</button>
                 </div>
@@ -77,7 +78,6 @@ export default class NavBar extends Component {
                 <div className='wrap'>
                     <div className='mainPage_main_content'>
                         {filteredRecipes}
-
                     </div>
                 </div>
             </main>

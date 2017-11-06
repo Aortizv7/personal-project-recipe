@@ -28,6 +28,7 @@ export default class Profile extends Component {
             </div>
             : null
 
+
         return (
             <div>
                 {userInfo}
@@ -40,9 +41,9 @@ export default class Profile extends Component {
                 <section className='favorite recipes'>
                     <div>
                         <h2>Your Favorite Recipes</h2>
+                        <button>Remove from Favorites</button>
                     </div>
                 </section>
-
             </div>
         )
     }
