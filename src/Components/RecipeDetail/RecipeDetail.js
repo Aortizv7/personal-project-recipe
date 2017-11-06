@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './RecipeDetail.css';
-import { getRecipeDetail } from '../../utils/api';
+import { getRecipeDetail,addToFavorites} from '../../utils/api';
 import { Link } from 'react-router-dom';
 
 export default class RecipeDetail extends Component {
@@ -9,9 +9,9 @@ export default class RecipeDetail extends Component {
         this.state = {
             recipe: []
         }
-        //    this.addToFavorites=this.addToFavorites.bind(this)
+        //    this.addToFavoriteRecipes=this.addToFavoriteRecipes.bind(this)
     }
-    // addToFavorites(){
+    // addToFavoriteRecipes(){
 
     // }
     componentWillMount() {
@@ -41,7 +41,7 @@ export default class RecipeDetail extends Component {
                     </h3>
                     <p>Ingredients:{ingredients}</p>
                     <Link to='/search'><button>Back</button></Link>
-                    <button /*onClick={this.addToFavorites}*/>Add to Favorites</button>
+                    <button /*onClick={this.addToFavoriteRecipes}*/>Add to Favorites</button>
                 </div>
             )
         })

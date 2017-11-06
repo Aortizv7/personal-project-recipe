@@ -72,15 +72,15 @@ app.get('/auth/callback', passport.authenticate('auth0', {
     failureRedirect: '/auth'
 }))
 
-app.get('/auth/me',(req,res)=>{
-    if(req.user){
+app.get('/auth/me', (req, res) => {
+    if (req.user) {
         return res.status(200).send(req.user)
-    }else{
+    } else {
         return res.status(401).send(`You Need To Log In`)
     }
 })
 
-app.get('/logout',(req,res)=>{
+app.get('/logout', (req, res) => {
     req.logout()
     res.redirect('http://localhost:3000/')
 })
@@ -105,10 +105,10 @@ app.get('/api/search', (req, res) => {
 
 // this is continued on axios requests but this one gets individual recipes paramed by id
 
-app.get('/api/recipe/:id',(req,res)=>{
-    axios.get(`http://food2fork.com/api/get?key=${API_KEY}&rId=${req.params.id}`).then(response=>{
+app.get('/api/recipe/:id', (req, res) => {
+    axios.get(`http://food2fork.com/api/get?key=${API_KEY}&rId=${req.params.id}`).then(response => {
         res.status(200).send(response.data)
-    }).catch(error=>console.log(error))
+    }).catch(error => console.log(error))
 })
 
 //additional axios calls to talk directly to database
@@ -117,11 +117,29 @@ app.get('/api/recipe/:id',(req,res)=>{
 //fron end to display 
 
 
+app.post('/api/favorites/add/:id', (req, res) => {
+    var db = app.get('db');
+    let { id } = req.params;
+    db.add_to_favorites([id, req.user.id]).then((updatedFavorites) => {
+        res.status(200).send(updatedFavorites)
+    })
+})
 
 
+app.delete('/api/favorites/delete/:id', (req, res) => {
+    var db = app.get('db');
+    let {id}=req.params;
+    db.remove_from_favorites([id,req.user.id]).then((favorites)=>{
+        res.status(200).send(favorites)
+    })
+})
 
-
-
+app.get('/api/favorites', (req, res) => {
+    var db = app.get('db');
+    db.find_favorite_recipes([req.user.id]).then((favoriteRecipes) => {
+        res.status(200).send(favoriteRecipes.data)
+    })
+})
 
 
 

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './MainPage.css';
 import { Link } from 'react-router-dom';
-import { getAllRecipes, searchAllRecipes } from '../../utils/api';
+import { getAllRecipes, searchAllRecipes, addToFavorites } from '../../utils/api';
 
 export default class NavBar extends Component {
     constructor() {
@@ -12,6 +12,7 @@ export default class NavBar extends Component {
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleClick = this.handleClick.bind(this);
+        this.handleAddToFavorites = this.handleAddToFavorites.bind(this);
     }
 
     handleChange(e) {
@@ -28,6 +29,11 @@ export default class NavBar extends Component {
         })
     }
 
+    handleAddToFavorites(id) {
+        addToFavorites(id).then((res) => {
+            console.log(res)
+        })
+    }
     componentWillMount() {
         getAllRecipes().then(res => {
             this.setState({
@@ -35,21 +41,13 @@ export default class NavBar extends Component {
             })
         })
     }
-    
+
     render() {
         var filteredRecipes = this.state.recipes.map((e, i) => {
             return (
-                <div className='mainPage_recipe_info' key={i}>
-                    <h2>{e.title}</h2>
-                    <Link to={`/recipe/detail/${e.recipe_id}`}>
-                        <img className='mainPage_recipe_img'
-                            src={e.image_url}
-                            alt='recipe pic' />
-                    </Link>
-                    <h3>Social Rank: {Math.floor(e.social_rank)}</h3>
-                    <button>{/*this button will have to take an onclick event 
-                    to add the recipe_id into the favorites table */}Add to Favorites</button>
-                </div>
+                <RecipeCard key={i} title={e.title} recipe_id={e.recipe_id}
+                    image_url={e.image_url} social_rank={e.social_rank}
+                    handleAddToFavorites={this.handleAddToFavorites} />
             )
         })
 
@@ -74,7 +72,6 @@ export default class NavBar extends Component {
                         </ul>
                     </div>
                 </div>
-
                 <div className='wrap'>
                     <div className='mainPage_main_content'>
                         {filteredRecipes}
@@ -83,4 +80,19 @@ export default class NavBar extends Component {
             </main>
         )
     }
+}
+
+function RecipeCard(props) {
+    return (
+        <div className='mainPage_recipe_info'>
+            <h2>{props.title}</h2>
+            <Link to={`/recipe/detail/${props.recipe_id}`}>
+                <img className='mainPage_recipe_img'
+                    src={props.image_url}
+                    alt='recipe pic' />
+            </Link>
+            <h3>Social Rank: {Math.floor(props.social_rank)}</h3>
+            <button onClick={() => props.handleAddToFavorites(props.recipe_id)}>Add to Favorites</button>
+        </div>
+    )
 }

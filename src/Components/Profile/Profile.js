@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import './Profile.css';
 import { Link } from 'react-router-dom';
-import { getUserInfo } from '../../utils/api';
+import { getUserInfo,getFavorites,removeFromFavorites} from '../../utils/api';
 
 export default class Profile extends Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.state = {
             userData: null
         }
+        this.handleRemoveFromFavorites=this.handleRemoveFromFavorites.bind(this);
     }
 
     componentDidMount() {
@@ -18,7 +19,15 @@ export default class Profile extends Component {
         })
     }
 
+    handleRemoveFromFavorites(id){
+        removeFromFavorites(id).then((res)=>{
+            this.setState({favoriteRecipes:res.data})
+            console.log(this.state.favoriteRecipes)
+        })
+    }
+
     render() {
+        console.log(this.state.favoriteRecipes)
         let user = this.state.userData
         let userInfo = this.state.userData ?
             <div className='user_info' >
@@ -28,7 +37,7 @@ export default class Profile extends Component {
             </div>
             : null
 
-
+         console.log(this.state.favoriteRecipes)
         return (
             <div>
                 {userInfo}
@@ -41,7 +50,7 @@ export default class Profile extends Component {
                 <section className='favorite recipes'>
                     <div>
                         <h2>Your Favorite Recipes</h2>
-                        <button>Remove from Favorites</button>
+                        <button onClick={()=>this.handleRemoveFromFavorites}>Remove from Favorites</button>
                     </div>
                 </section>
             </div>
