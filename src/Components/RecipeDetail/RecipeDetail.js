@@ -32,24 +32,31 @@ export default class RecipeDetail extends Component {
                 )
             })
             return (
-                <div key={i}>
+                <div key={i} className='recipe_info'>
                     <img src={e.image_url} alt='food' />
                     <h2>{e.title}</h2>
-                    <h3>{e.publisher}</h3>
+                    <h3>By: {/*<a href={e.publisher_url} target='_blank'>*/}{e.publisher}{/*</a>*/}</h3>
                     <h3>For Detailed Instructions Please Click
                   <a href={e.source_url} target='_blank'> Here</a>
                     </h3>
                     <p>ingredients:{ingredients}</p>
-
-
+                    <Link to='/search'><button>Back</button></Link>
+                    <button /*onClick={this.addToFavorites}*/>Add to Favorites</button>
                 </div>
             )
         })
         return (
             <div className='recipeDetail_background'>
+                <div>
+                    <nav>
+                        <ul>
+                            <li>Profile</li>
+                            <li>Log Out</li>
+                        </ul>
+                    </nav>
+                </div>
                 {individualRecipe}
-                <Link to='/search'><button>Back</button></Link>
-                <button /*onClick={this.addToFavorites}*/>Add to Favorites</button>
+
             </div>
         )
     }

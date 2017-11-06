@@ -4,3 +4,9 @@
     background: url('./../../assets/brooke-lark-385507.jpg');
     background-repeat: no-repeat;
 }
+
+.recipe_info{
+    width:70%;
+    height:100vh;
+    background: rgba(199, 194, 194, 0.555);
+}
