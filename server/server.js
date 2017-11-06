@@ -16,7 +16,6 @@ app.use(bodyParser.json());
 app.use(cors());
 
 
-
 //this will save the users session to keep them loged in for a while//
 app.use(session({
     secret: process.env.SECRET,
@@ -39,10 +38,6 @@ passport.use(new Auth0Strategy({
     clientSecret: process.env.CLIENT_SECRET,
     callbackURL: process.env.AUTH_CALLBACK
 }, function (acessToken, refreshToken, extraParams, profile, done) {
-    //check if the user exists in users table
-    //if they do, invoke done with user's id
-    //if not, then we will create a new user
-    //then invoke done with new user's id
     const db = app.get('db');
     const userData = profile._json;
     db.find_user([userData.identities[0].user_id]).then(user => {
@@ -115,6 +110,19 @@ app.get('/api/recipe/:id',(req,res)=>{
         res.status(200).send(response.data)
     }).catch(error=>console.log(error))
 })
+
+//additional axios calls to talk directly to database
+//I will be able to add favorite recipes based on a user_id
+// i will be able to find a user's favorite recipes and send them to 
+//fron end to display 
+
+
+
+
+
+
+
+
 
 
 

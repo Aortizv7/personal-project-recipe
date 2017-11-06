@@ -46,6 +46,8 @@ export default class NavBar extends Component {
                             alt='recipe pic' />
                     </Link>
                     <h3>Rank: {Math.floor(e.social_rank)}</h3>
+                    <button>{/*this button will have to take an onclick event 
+                    to add the recipe_id into the favorites table */}Add to Favorites</button>
                 </div>
             )
         })
@@ -62,8 +64,12 @@ export default class NavBar extends Component {
                         onClick={this.handleClick}>Search</button>
                     <div className='mainPage_menu'>
                         <ul className='mainPage_menu_options'>
-                            <li>Profile</li>
-                            <li>Log Out</li>
+                            <Link to='/profile'>
+                                <li>Profile</li>
+                            </Link>
+                            <a href='http://localhost:3535/logout'>
+                                <li>Log Out</li
+                                ></a>
                         </ul>
                     </div>
                 </div>
@@ -71,6 +77,7 @@ export default class NavBar extends Component {
                 <div className='wrap'>
                     <div className='mainPage_main_content'>
                         {filteredRecipes}
+                      
                     </div>
                 </div>
             </main>
