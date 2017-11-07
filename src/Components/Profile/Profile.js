@@ -76,7 +76,6 @@ export default class Profile extends Component {
                     <div>
                         <h2>Your Favorite Recipes</h2>
                         {favoriteRecipes}
-
                     </div>
                 </section>
             </div>

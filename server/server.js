@@ -27,6 +27,7 @@ massive(process.env.CONNECTION_STRING).then(db =>
     app.set('db', db)
 );
 
+
 passport.use(new Auth0Strategy({
     domain: process.env.DOMAIN,
     clientID: process.env.CLIENT_ID,
@@ -51,10 +52,12 @@ passport.use(new Auth0Strategy({
     })
 
 }))
+
 passport.serializeUser((id, done) => {
     done(null, id)
     console.log(id)
 })
+
 passport.deserializeUser((id, done) => {
     app.get('db').find_session_user([id]).then(user => {
         done(null, user[0]);
@@ -99,6 +102,7 @@ app.get('/api/recipe/:id', (req, res) => {
         res.status(200).send(response.data)
     }).catch(error => console.log(error))
 })
+
 
 app.get('/api/favorites', (req, res) => {
     var db = app.get('db');
