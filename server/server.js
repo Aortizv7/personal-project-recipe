@@ -116,30 +116,35 @@ app.get('/api/recipe/:id', (req, res) => {
 // i will be able to find a user's favorite recipes and send them to 
 //fron end to display 
 
+app.get('/api/favorites', (req, res) => {
+    var db = app.get('db');
+    db.find_favorite_recipes([req.user.id]).then((recipes) => {
+        console.log(req.user)
+        res.status(200).send(recipes.data)
+        console.log(recipes.data)
+    }).catch(error => console.log(error))
+})
+
 
 app.post('/api/favorites/add/:id', (req, res) => {
     var db = app.get('db');
     let { id } = req.params;
     db.add_to_favorites([id, req.user.id]).then((updatedFavorites) => {
         res.status(200).send(updatedFavorites)
-    })
+        
+    }).catch(error => console.log(error))
 })
 
 
 app.delete('/api/favorites/delete/:id', (req, res) => {
     var db = app.get('db');
-    let {id}=req.params;
-    db.remove_from_favorites([id,req.user.id]).then((favorites)=>{
-        res.status(200).send(favorites)
-    })
+    let { id } = req.params;
+    db.remove_from_favorites([id, req.user.id]).then((deletedFavorite) => {
+        res.status(200).send(deletedFavorite)
+    }).catch(error => console.log(error))
 })
 
-app.get('/api/favorites', (req, res) => {
-    var db = app.get('db');
-    db.find_favorite_recipes([req.user.id]).then((favoriteRecipes) => {
-        res.status(200).send(favoriteRecipes.data)
-    })
-})
+
 
 
 

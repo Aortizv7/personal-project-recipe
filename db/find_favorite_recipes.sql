@@ -1,2 +1,2 @@
-select recipe_id from favorites 
+select * from favorites 
 where user_id=$1;

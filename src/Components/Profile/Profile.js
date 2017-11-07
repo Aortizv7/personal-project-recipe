@@ -14,11 +14,15 @@ export default class Profile extends Component {
 
     componentDidMount() {
         getUserInfo().then(res => {
-            console.log(res)
             this.setState({ userData: res.data })
         })
+        getFavorites().then(res=>{
+            console.log('this is the res from favorites',res)
+        })
+       
     }
-
+    
+  
     handleRemoveFromFavorites(id){
         removeFromFavorites(id).then((res)=>{
             this.setState({favoriteRecipes:res.data})
@@ -27,7 +31,7 @@ export default class Profile extends Component {
     }
 
     render() {
-        console.log(this.state.favoriteRecipes)
+        
         let user = this.state.userData
         let userInfo = this.state.userData ?
             <div className='user_info' >
@@ -37,7 +41,6 @@ export default class Profile extends Component {
             </div>
             : null
 
-         console.log(this.state.favoriteRecipes)
         return (
             <div>
                 {userInfo}
