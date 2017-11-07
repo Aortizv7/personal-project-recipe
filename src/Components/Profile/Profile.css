@@ -3,3 +3,8 @@
     height:32px;
     background-image: url('./../../assets/remove.png')
 }
+.back_button{
+    width:32px;
+    height:32px;
+    background-image: url('./../../assets/back.png')
+}

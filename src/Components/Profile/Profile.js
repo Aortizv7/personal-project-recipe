@@ -72,7 +72,7 @@ export default class Profile extends Component {
                     <button className='logout'></button>
                 </a>
                 <Link to='/search'>
-                    <button>Back to Search</button>
+                    <button className='back-button'></button>
                 </Link>
                 <section className='favorite recipes'>
                     <div>
