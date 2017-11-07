@@ -12,24 +12,22 @@ export default class RecipeDetail extends Component {
         }
         this.addToFavoriteRecipes = this.addToFavoriteRecipes.bind(this)
     }
+
     addToFavoriteRecipes() {
         addToFavorites(this.props.match.params.id).then(res => {
             console.log(res)
         })
     }
-    componentWillMount() {
 
+    componentWillMount() {
         getRecipeDetail(this.props.match.params.id).then(res => {
             this.setState({ recipe: this.state.recipe.concat([{ ...res.data.recipe }]) })
         })
-        console.log(`this is the individual recipe call ${this.state.recipe}`)
     }
 
 
     render() {
-        console.log(this.props)
         var individualRecipe = this.state.recipe.map((e, i) => {
-            console.log(e)
             var ingredients = e.ingredients.map((e, i) => {
                 return (
                     <li key={i}>{e}</li>
@@ -46,8 +44,7 @@ export default class RecipeDetail extends Component {
                     <Link to='/search'>
                         <button className='back_button'></button>
                     </Link>
-                    
-                    <h2>Published By: {/*<a href={e.publisher_url} target='_blank'>*/}{e.publisher}{/*</a>*/}</h2>
+                    <h2>Published By:{e.publisher}</h2>
                     <p>Ingredients:{ingredients}</p>
                     <h2>For Detailed Instructions Please Click
                      <a href={e.source_url} target='_blank'> Here</a>

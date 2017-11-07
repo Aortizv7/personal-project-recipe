@@ -55,7 +55,7 @@ export default class NavBar extends Component {
             <main className='mainPage_background'>
                 <div className='mainPage_navBackground'>
                     <input type='text'
-                        placeholder='Search by Ingredients or Recipe Name'
+                        placeholder='Search by Ingredients/Recipe Name'
                         className='input_box'
                         onChange={(e) => this.handleChange(e)}
                     />
