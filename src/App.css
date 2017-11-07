@@ -1,3 +1,29 @@
+body{
+    font-family: 'fredericka the great';
+}
+
+button{
+    font-family: 'fredericka the great';
+    font-size:16px;
+    border:none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input{
+    font-family: 'Dancing Script';
+    font-size:16px;
+}
+
+li{
+list-style: none;
+font-size: 20px;
+}
+
+a:link{
+    text-decoration: none;
+}
+
 
 
 

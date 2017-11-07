@@ -18,7 +18,7 @@ export default class RecipeDetail extends Component {
         })
     }
     componentWillMount() {
-       
+
         getRecipeDetail(this.props.match.params.id).then(res => {
             this.setState({ recipe: this.state.recipe.concat([{ ...res.data.recipe }]) })
         })
@@ -37,15 +37,21 @@ export default class RecipeDetail extends Component {
             })
             return (
                 <div key={i} className='recipe_info'>
+                    <h1>{e.title}</h1>
+                    <button
+                        onClick={this.addToFavoriteRecipes}
+                        className='add_button'>
+                    </button>
                     <img src={e.image_url} alt='food' />
-                    <h2>{e.title}</h2>
-                    <h3>By: {/*<a href={e.publisher_url} target='_blank'>*/}{e.publisher}{/*</a>*/}</h3>
-                    <h3>For Detailed Instructions Please Click
-                  <a href={e.source_url} target='_blank'> Here</a>
-                    </h3>
+                    <Link to='/search'>
+                        <button className='back_button'></button>
+                    </Link>
+                    
+                    <h2>Published By: {/*<a href={e.publisher_url} target='_blank'>*/}{e.publisher}{/*</a>*/}</h2>
                     <p>Ingredients:{ingredients}</p>
-                    <Link to='/search'><button>Back</button></Link>
-                    <button onClick={this.addToFavoriteRecipes}>Add to Favorites</button>
+                    <h2>For Detailed Instructions Please Click
+                     <a href={e.source_url} target='_blank'> Here</a>
+                    </h2>
                 </div>
             )
         })
@@ -54,10 +60,10 @@ export default class RecipeDetail extends Component {
                 <nav className='recipeDetail_nav'>
                     <ul>
                         <Link to='/profile'>
-                            <li>Profile</li>
+                            <div className='cook'></div>
                         </Link>
                         <a href='http://localhost:3535/logout'>
-                            <li>Log Out</li>
+                            <div className='logout'></div>
                         </a>
                     </ul>
                 </nav>

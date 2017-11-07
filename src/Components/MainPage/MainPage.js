@@ -17,7 +17,7 @@ export default class NavBar extends Component {
 
     handleChange(e) {
         this.setState({
-            userInput: e.target.value
+            userInput: e.target.value,
         })
     }
 
@@ -62,14 +62,14 @@ export default class NavBar extends Component {
                     <button className='search_button'
                         onClick={this.handleClick}>Search</button>
                     <div className='mainPage_menu'>
-                        <ul className='mainPage_menu_options'>
+                        <div className='mainPage_menu_options'>
                             <Link to='/profile'>
-                                <li>Profile</li>
+                                <div className='cook'></div>
                             </Link>
                             <a href='http://localhost:3535/logout'>
-                                <li>Log Out</li>
+                                <div className='logout'></div>
                             </a>
-                        </ul>
+                        </div>
                     </div>
                 </div>
                 <div className='wrap'>
@@ -85,14 +85,17 @@ export default class NavBar extends Component {
 function RecipeCard(props) {
     return (
         <div className='mainPage_recipe_info'>
-            <h2>{props.title}</h2>
+            <h1>{props.title}</h1>
             <Link to={`/recipe/detail/${props.recipe_id}`}>
                 <img className='mainPage_recipe_img'
                     src={props.image_url}
                     alt='recipe pic' />
             </Link>
-            <h3>Social Rank: {Math.floor(props.social_rank)}</h3>
-            <button onClick={() => props.handleAddToFavorites(props.recipe_id)}>Add to Favorites</button>
+            <h2>Social Rank: {Math.floor(props.social_rank)}</h2>
+            <button
+                onClick={() => props.handleAddToFavorites(props.recipe_id)}
+                className='add_button'>
+            </button>
         </div>
     )
 }
