@@ -1,2 +1,3 @@
 delete from favorites
-where id=$1;
+where recipe_id=$1
+and user_id=$2;

@@ -1,20 +1,24 @@
 import React, { Component } from 'react';
 import './RecipeDetail.css';
-import { getRecipeDetail,addToFavorites} from '../../utils/api';
+import { getRecipeDetail, addToFavorites } from '../../utils/api';
 import { Link } from 'react-router-dom';
 
 export default class RecipeDetail extends Component {
     constructor(props) {
         super(props)
+        console.log(props)
         this.state = {
             recipe: []
         }
-        //    this.addToFavoriteRecipes=this.addToFavoriteRecipes.bind(this)
+        this.addToFavoriteRecipes = this.addToFavoriteRecipes.bind(this)
     }
-    // addToFavoriteRecipes(){
-
-    // }
+    addToFavoriteRecipes() {
+        addToFavorites(this.props.match.params.id).then(res => {
+            console.log(res)
+        })
+    }
     componentWillMount() {
+       
         getRecipeDetail(this.props.match.params.id).then(res => {
             this.setState({ recipe: this.state.recipe.concat([{ ...res.data.recipe }]) })
         })
@@ -41,7 +45,7 @@ export default class RecipeDetail extends Component {
                     </h3>
                     <p>Ingredients:{ingredients}</p>
                     <Link to='/search'><button>Back</button></Link>
-                    <button /*onClick={this.addToFavoriteRecipes}*/>Add to Favorites</button>
+                    <button onClick={this.addToFavoriteRecipes}>Add to Favorites</button>
                 </div>
             )
         })

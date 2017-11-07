@@ -11,19 +11,15 @@ const express = require('express')
 
 const app = express();
 
-//this is my middleware//
 app.use(bodyParser.json());
 app.use(cors());
 
-
-//this will save the users session to keep them loged in for a while//
 app.use(session({
     secret: process.env.SECRET,
     resave: false,
     saveUninitialized: true
 }));
 
-//Passport goes here //
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -31,7 +27,6 @@ massive(process.env.CONNECTION_STRING).then(db =>
     app.set('db', db)
 );
 
-// I will set up the auth0 authentication here //
 passport.use(new Auth0Strategy({
     domain: process.env.DOMAIN,
     clientID: process.env.CLIENT_ID,
@@ -86,11 +81,6 @@ app.get('/logout', (req, res) => {
 })
 
 
-//these are my axios calls that talk to the front end to get the recipe info//
-
-//this one gets the initial search as well as any query i.e. if a customer
-//wants to search by ingredients or keywords or recipe name it is done here//
-
 app.get('/api/search', (req, res) => {
     if (req.query.term) {
         axios.get(`http://food2fork.com/api/search?key=${API_KEY}&q=${req.query.term}`).then(response => {
@@ -103,7 +93,6 @@ app.get('/api/search', (req, res) => {
     }
 })
 
-// this is continued on axios requests but this one gets individual recipes paramed by id
 
 app.get('/api/recipe/:id', (req, res) => {
     axios.get(`http://food2fork.com/api/get?key=${API_KEY}&rId=${req.params.id}`).then(response => {
@@ -111,17 +100,12 @@ app.get('/api/recipe/:id', (req, res) => {
     }).catch(error => console.log(error))
 })
 
-//additional axios calls to talk directly to database
-//I will be able to add favorite recipes based on a user_id
-// i will be able to find a user's favorite recipes and send them to 
-//fron end to display 
-
 app.get('/api/favorites', (req, res) => {
     var db = app.get('db');
-    db.find_favorite_recipes([req.user.id]).then((recipes) => {
-        console.log(req.user)
-        res.status(200).send(recipes.data)
-        console.log(recipes.data)
+    console.log(req.user.id)
+    db.find_favorite_recipes([req.user.id]).then((recipeId) => {
+        console.log('it made it here ', recipeId)
+        res.status(200).send(recipeId)
     }).catch(error => console.log(error))
 })
 
@@ -131,7 +115,6 @@ app.post('/api/favorites/add/:id', (req, res) => {
     let { id } = req.params;
     db.add_to_favorites([id, req.user.id]).then((updatedFavorites) => {
         res.status(200).send(updatedFavorites)
-        
     }).catch(error => console.log(error))
 })
 
@@ -143,10 +126,6 @@ app.delete('/api/favorites/delete/:id', (req, res) => {
         res.status(200).send(deletedFavorite)
     }).catch(error => console.log(error))
 })
-
-
-
-
 
 
 const PORT = 3535
