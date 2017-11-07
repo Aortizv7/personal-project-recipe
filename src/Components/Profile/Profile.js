@@ -59,7 +59,9 @@ export default class Profile extends Component {
                 <div key={i}>
                     <img src={e.image_url} alt='recipePic' />
                     <h2>{e.title}</h2>
-                    <button onClick={() => this.handleRemoveFromFavorites(e.recipe_id)}>Remove from Favorites</button>
+                    <button className='remove_button'
+                    onClick={() => this.handleRemoveFromFavorites(e.recipe_id)}>
+                    </button>
                 </div>
             )
         })
@@ -67,7 +69,7 @@ export default class Profile extends Component {
             <div>
                 {userInfo}
                 <a href='http://localhost:3535/logout'>
-                    <button>Log Out</button>
+                    <button className='logout'></button>
                 </a>
                 <Link to='/search'>
                     <button>Back to Search</button>
