@@ -13,7 +13,7 @@ export default class Home extends Component {
                 </div>
                 <div>
                     <a href={process.env.REACT_APP_LOGIN}>
-                        <button className='home_button'>Feed my Soul!</button>
+                        <button className='home_button'>Let's Begin!</button>
                     </a>
                 </div>
             </div>
