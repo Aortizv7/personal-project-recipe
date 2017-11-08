@@ -69,6 +69,7 @@ export default class Profile extends Component {
             <div className='profile_background'>
                 <nav className='profileNav'>
                     {userInfo}
+                    <h1 className='profile_header'>Profile</h1>
                     <a href='http://localhost:3535/logout'>
                         <button className='logout'></button>
                     </a>
