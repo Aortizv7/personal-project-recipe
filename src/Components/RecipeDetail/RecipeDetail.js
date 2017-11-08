@@ -36,33 +36,43 @@ export default class RecipeDetail extends Component {
             return (
                 <div key={i} className='recipe_info'>
                     <h1>{e.title}</h1>
+
+                    <img src={e.image_url} alt='food' className='recipeDetail_img' />
                     <button
                         onClick={this.addToFavoriteRecipes}
                         className='add_button'>
                     </button>
-                    <img src={e.image_url} alt='food' />
                     <Link to='/search'>
                         <button className='back_button'></button>
                     </Link>
                     <h2>Published By:{e.publisher}</h2>
                     <p>Ingredients:{ingredients}</p>
-                    <h2>For Detailed Instructions Please Click
-                     <a href={e.source_url} target='_blank'> Here</a>
-                    </h2>
+                    <div className='forwarding'>
+                        <h2>Show me Detailed Instructions</h2>
+                        <a href={e.source_url} target='_blank'><h2 className='forward_button'></h2></a>
+
+                    </div>
                 </div>
             )
         })
         return (
             <div className='recipeDetail_background'>
                 <nav className='recipeDetail_nav'>
-                    <ul>
+                    <div className='recipeDetail_header'>
+                        <div className='fork_and_spoon_logo'></div>
+                        <header className='mainPage_header'>Recipe Jar</header>
+                    </div>
+                    <div className='recipeDetail_middle_header'>
+                        <h1>Recipe Details</h1>
+                    </div>
+                    <div className='recipeDetail_logos'>
                         <Link to='/profile'>
                             <div className='cook'></div>
                         </Link>
                         <a href='http://localhost:3535/logout'>
                             <div className='logout'></div>
                         </a>
-                    </ul>
+                    </div>
                 </nav>
                 {individualRecipe}
             </div>

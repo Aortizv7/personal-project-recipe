@@ -1,24 +1,77 @@
 .recipeDetail_background{
     width:100%;
-    height:150vh;
+    height: 125vh;
     background: url('./../../assets/brooke-lark-385507.jpg');
     background-repeat: no-repeat;
-}
-
-.recipe_info{
-    width:70%;
-    height:100vh;
-    background: rgba(199, 194, 194, 0.555);
 }
 
 .recipeDetail_nav{
     width:100%;
     height:10vh;
-    background: rgba(137, 45, 160, 0.5);
+    display: flex;
+    align-items: center;
+    background:rgba(239, 35, 62, 0.777);
+    border:2px solid rgb(239, 35, 62);
+}
+.recipeDetail_header{
+    width:35%;
+    height:10vh;
+    display: flex;
+    align-items: center;
+
+}
+.recipeDetail_middle_header{
+    width:60%;
+    height:10vh;
+    font-size:60px;
+    display: flex;
+    align-items: center;
+}
+.recipeDetail_logos{
+    width:10%;
+    height:10vh;
+    display: flex;
+    align-items: center;
+}
+.recipe_info{
+    width:50%;
+    height:100vh;
+    margin-left:300px;
+    margin-top:50px;
+    padding:20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border-radius:2px;
+    border:ridge;
+    background:rgba(251, 251, 251, 0.444);
+}
+
+.recipeDetail_img{
+    width:450px;
+    height:400px;
+    margin:5px;
+    border-radius: 10px;
+    border:double black;
 }
 
 .back_button{
     width:32px;
     height:32px;
     background:url('./../../assets/back.png');
+}
+.forward_button{
+    width:32px;
+    height:32px;
+    margin-left:20px;
+    background-image: url('./../../assets/arrow-32-32.png');
+}
+.forwarding{
+    width:50%;
+    height:5vh;
+    display:flex;
+    flex-direction: row;
+    align-items:center;
+
 }

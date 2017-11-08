@@ -1,9 +1,8 @@
  .mainPage_background{
  width:100%;
- /* height:200vh; */
+ height:400vh;
  background-repeat: no-repeat;
  background: silver;
- /* background-image: url('./../../assets/kim-gorga-329754.jpg'); */
  }
 
 .mainPage_navBackground{
@@ -34,6 +33,7 @@
  border-radius: 5px;
  margin-left:200px;
 }
+
 .search_button{
  width:10vw;
  height:5.7vh;

@@ -31,7 +31,7 @@ export default class Profile extends Component {
 
     handleRemoveFromFavorites(id) {
         removeFromFavorites(id).then((response) => {
-            console.log(response)
+            // console.log(response)
             //     getFavorites().then(res => {
             //         res.data.forEach((e, i) => {
             //             getRecipeDetail(e.recipe_id).then(resp => {
