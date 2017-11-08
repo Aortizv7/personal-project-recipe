@@ -49,36 +49,36 @@ export default class Profile extends Component {
         let user = this.state.userData
         let userInfo = this.state.userData ?
             <div className='user_info' >
-                <img src={user.img} alt='avatar' />
-                <p>Username:{user.user_name}</p>
-                <p>Email:{user.email}</p>
+                <img src={user.img} alt='avatar' className='profile_img' />
+                <p>{user.user_name}</p>
+                {/* <p>Email:{user.email}</p> */}
             </div>
             : null
         let favoriteRecipes = this.state.recipes.map((e, i) => {
             return (
-                <div key={i}>
-                    <img src={e.image_url} alt='recipePic' />
+                <div key={i} className='profile_recipe_card'>
                     <h2>{e.title}</h2>
+                    <img src={e.image_url} alt='recipePic' className='mainPage_recipe_img' />
                     <button className='remove_button'
-                    onClick={() => this.handleRemoveFromFavorites(e.recipe_id)}>
+                        onClick={() => this.handleRemoveFromFavorites(e.recipe_id)}>
                     </button>
                 </div>
             )
         })
         return (
-            <div>
-                {userInfo}
-                <a href='http://localhost:3535/logout'>
-                    <button className='logout'></button>
-                </a>
-                <Link to='/search'>
-                    <button className='back-button'></button>
-                </Link>
-                <section className='favorite recipes'>
-                    <div>
-                        <h2>Your Favorite Recipes</h2>
-                        {favoriteRecipes}
-                    </div>
+            <div className='profile_background'>
+                <nav className='profileNav'>
+                    {userInfo}
+                    <a href='http://localhost:3535/logout'>
+                        <button className='logout'></button>
+                    </a>
+                    <Link to='/search'>
+                        <button className='back-button'></button>
+                    </Link>
+                </nav>
+
+                <section className='favorite_recipes'>
+                    {favoriteRecipes}
                 </section>
             </div>
         )

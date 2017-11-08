@@ -35,7 +35,7 @@ export default class RecipeDetail extends Component {
             })
             return (
                 <div key={i} className='recipe_info'>
-                    <h1>{e.title}</h1>
+                    <h1 className='recipeDetail_title'>{e.title}</h1>
 
                     <img src={e.image_url} alt='food' className='recipeDetail_img' />
                     <button
@@ -45,10 +45,10 @@ export default class RecipeDetail extends Component {
                     <Link to='/search'>
                         <button className='back_button'></button>
                     </Link>
-                    <h2>Published By:{e.publisher}</h2>
-                    <p>Ingredients:{ingredients}</p>
+                    <h2 className='recipeDetail_title'>Published By : {e.publisher}</h2>
+                    <p className='recipeDetail_title'>Ingredients : {ingredients}</p>
                     <div className='forwarding'>
-                        <h2>Show me Detailed Instructions</h2>
+                        <h2 className='recipeDetail_title'>Show me Detailed Instructions</h2>
                         <a href={e.source_url} target='_blank'><h2 className='forward_button'></h2></a>
 
                     </div>

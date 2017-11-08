@@ -7,7 +7,7 @@
 
 .recipeDetail_nav{
     width:100%;
-    height:10vh;
+    height:8vh;
     display: flex;
     align-items: center;
     background:rgba(239, 35, 62, 0.777);
@@ -35,10 +35,9 @@
 }
 .recipe_info{
     width:50%;
-    height:100vh;
-    margin-left:300px;
-    margin-top:50px;
-    padding:20px;
+    margin-left:350px;
+    margin-top:20px;
+    padding:10px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -55,7 +54,9 @@
     border-radius: 10px;
     border:double black;
 }
-
+.recipeDetail_title{
+    font-size:22px;
+}
 .back_button{
     width:32px;
     height:32px;
@@ -68,7 +69,7 @@
     background-image: url('./../../assets/arrow-32-32.png');
 }
 .forwarding{
-    width:50%;
+    width:60%;
     height:5vh;
     display:flex;
     flex-direction: row;
