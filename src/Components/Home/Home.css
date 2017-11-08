@@ -4,20 +4,26 @@ height:100vh;
 background:url('./../../assets/brooke-lark-230140.jpg');
 background-repeat: no-repeat;
 display: flex;
-justify-content: center;
+flex-direction: column;
 align-items: center;
+justify-content: space-around;
 }
 
+.home_header{
+    font-size:80px;
+    width:60%;
+    font-family:'Kaushan script';
+    padding:50px;
+    line-height:100px;
+    color:rgb(1, 10, 1);
+}
 .home_button{
     width:40vh;
     height:40vh;
-    /* background: rgba(233, 88, 134, 0.424); */
-    /* background: rgba(239, 35, 62, 0.555); */
     background: radial-gradient(rgba(239, 35, 62, 0.333),rgba(239, 35, 62, 0.555),rgba(239, 35, 62, 0.666),rgba(239, 35, 62, 0.777),rgba(239, 35, 62, 0.888),rgba(239, 35, 62, 0.999),rgb(239, 35, 62));
     border-radius: 50%;
-    margin-left:650px;
-    border:none;
     font-size:45px;
+    border:2px solid black;
     font-weight: 900;
     outline-color:rgba(255, 255, 255, 0);
 }

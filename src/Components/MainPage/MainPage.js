@@ -53,7 +53,9 @@ export default class NavBar extends Component {
 
         return (
             <main className='mainPage_background'>
-                <div className='mainPage_navBackground'>
+                <nav className='mainPage_navBackground'>
+                    <div className='fork_and_spoon_logo'></div>
+                    <header className='mainPage_header'>Recipe Jar</header>
                     <input type='text'
                         placeholder='Search by Ingredients/Recipe Name'
                         className='input_box'
@@ -61,7 +63,7 @@ export default class NavBar extends Component {
                     />
                     <button className='search_button'
                         onClick={this.handleClick}>Search</button>
-                    <div className='mainPage_menu'>
+                    <section className='mainPage_menu'>
                         <div className='mainPage_menu_options'>
                             <Link to='/profile'>
                                 <div className='cook'></div>
@@ -70,8 +72,8 @@ export default class NavBar extends Component {
                                 <div className='logout'></div>
                             </a>
                         </div>
-                    </div>
-                </div>
+                    </section>
+                </nav>
                 <div className='wrap'>
                     <div className='mainPage_main_content'>
                         {filteredRecipes}
