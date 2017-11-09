@@ -69,7 +69,7 @@ export default class NavBar extends Component {
                             <Link to='/profile'>
                                 <div className='cook'></div>
                             </Link>
-                            <a href='http://localhost:3535/logout'>
+                            <a href={process.env.REACT_APP_LOGOUT}>
                                 <div className='logout'></div>
                             </a>
                         </div>
