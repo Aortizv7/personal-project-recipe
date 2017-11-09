@@ -69,7 +69,7 @@ export default class Profile extends Component {
                 <nav className='profileNav'>
                     {userInfo}
                     <h1 className='profile_header'>Profile</h1>
-                    <a href='http://localhost:3535/logout'>
+                    <a href={process.env.REACT_APP_LOGOUT}>
                         <button className='logout'></button>
                     </a>
                     <Link to='/search'>
