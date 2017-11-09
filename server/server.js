@@ -67,7 +67,7 @@ passport.deserializeUser((id, done) => {
 
 app.get('/auth', passport.authenticate('auth0'));
 app.get('/auth/callback', passport.authenticate('auth0', {
-    successRedirect: 'http://localhost:3000/#/search',
+    successRedirect: process.env.SUCCESSFUL_REDIRECT,
     failureRedirect: '/auth'
 }))
 
@@ -81,7 +81,7 @@ app.get('/auth/me', (req, res) => {
 
 app.get('/logout', (req, res) => {
     req.logout()
-    res.redirect('http://localhost:3000/')
+    res.redirect(process.env.LOG_OUT_REDIRECT)
 })
 
 
