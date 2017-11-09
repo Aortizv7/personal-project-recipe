@@ -9,15 +9,16 @@
 .profileNav{
     width:100%;
     height:10vh;
+    padding:10px;
     display: flex;
-    flex-direction: row;
     align-items: center;
     background: rgba(239, 35, 62, 0.777);
+    border:2px solid rgb(239, 35, 62);
 }
-.profile_user{
-    align-content: center;
-}
+
 .profile_header{
+    width:80%;
+    text-align: center;
     font-size:60px;
     margin-left:45clea0px;
 }
@@ -30,13 +31,16 @@
 .back-button{
     width:48px;
     height:48px;
+    margin:10px;
     background:transparent;
     background-image: url('./../../assets/home-48.png')
 }
 .profile_img{
-    width:55px;
-    height:55px;
+    width:65px;
+    height:65px;
     border-radius: 50%;
+    margin-left:10px;
+    border:2px solid black;
 }
 .favorite_recipes{
     width:100%;
@@ -55,7 +59,7 @@
     justify-content: center;
     align-items: center;
     background:rgba(251, 251, 251, 0.444);
-    border-radius:2px;
+    border-radius:5px;
     border:ridge;
     text-align: center;
 }

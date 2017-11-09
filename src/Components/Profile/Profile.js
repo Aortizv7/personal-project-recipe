@@ -48,10 +48,9 @@ export default class Profile extends Component {
         console.log(this.state.recipes)
         let user = this.state.userData
         let userInfo = this.state.userData ?
-            <div className='user_info' >
+            <div>
                 <img src={user.img} alt='avatar' className='profile_img' />
                 <p>{user.user_name}</p>
-                {/* <p>Email:{user.email}</p> */}
             </div>
             : null
         let favoriteRecipes = this.state.recipes.map((e, i) => {
