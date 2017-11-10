@@ -57,8 +57,8 @@ export default class NavBar extends Component {
                     <div className='fork_and_spoon_logo'></div>
                     <div className='mainPage_title'>Recipe Jar</div>
                     <input type='text'
-                        /* value={this.state.userInput} */
                         placeholder='Search by Ingredients/Recipe Name'
+                        value={this.state.userInput}
                         className='input_box'
                         onChange={(e) => this.handleChange(e)}
                     />
