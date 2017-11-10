@@ -35,7 +35,7 @@ export default class RecipeDetail extends Component {
             })
             return (
                 <div key={i} className='recipe_info'>
-                    <h1 className='recipeDetail_title'>{e.title}</h1>
+                    <h2>{e.title}</h2>
 
                     <img src={e.image_url} alt='food' className='recipeDetail_img' />
                     <button
@@ -45,10 +45,10 @@ export default class RecipeDetail extends Component {
                     <Link to='/search'>
                         <button className='back_button'></button>
                     </Link>
-                    <h2 className='recipeDetail_title'>Published By : {e.publisher}</h2>
-                    <p className='recipeDetail_title'>Ingredients : {ingredients}</p>
+                    <h2 >Published By : {e.publisher}</h2>
+                    <h2>Ingredients : {ingredients}</h2>
                     <div className='forwarding'>
-                        <h2 className='recipeDetail_title'>Show me Detailed Instructions</h2>
+                        <h2>Show me Detailed Instructions</h2>
                         <a href={e.source_url} target='_blank'><h2 className='forward_button'></h2></a>
 
                     </div>
@@ -58,11 +58,11 @@ export default class RecipeDetail extends Component {
         return (
             <div className='recipeDetail_background'>
                 <nav className='recipeDetail_nav'>
-                    <div className='recipeDetail_header'>
+                    <div className='recipeDetail_logo'>
                         <div className='fork_and_spoon_logo'></div>
-                        <header className='mainPage_header'>Recipe Jar</header>
+                        <div className='mainPage_title'>Recipe Jar</div>
                     </div>
-                    <div className='recipeDetail_middle_header'>
+                    <div className='recipeDetail_middle_title'>
                         <h1>Recipe Details</h1>
                     </div>
                     <div className='recipeDetail_logos'>

@@ -31,18 +31,23 @@ export default class Profile extends Component {
 
     handleRemoveFromFavorites(id) {
         removeFromFavorites(id).then((response) => {
-            // console.log(response)
-            //     getFavorites().then(res => {
-            //         res.data.forEach((e, i) => {
-            //             getRecipeDetail(e.recipe_id).then(resp => {
-            //                 this.setState({
-            //                     recipes: [...this.state.recipes, resp.data.recipe]
-            //                 })
+            // getFavorites().then(res => {
+            //     var array = []
+            //     res.data.forEach((e, i) => {
+            //         getRecipeDetail(e.recipe_id).then(response => {
+            //             console.log(array)
+            //                 array = array.push(response.data.recipe)
+            //                 console.log(array)
+
+            //             this.setState({
+            //                 recipes: array
             //             })
             //         })
             //     })
+            // })
         })
     }
+    
 
     render() {
         console.log(this.state.recipes)
@@ -68,12 +73,12 @@ export default class Profile extends Component {
             <div className='profile_background'>
                 <nav className='profileNav'>
                     {userInfo}
-                    <h1 className='profile_header'>Profile</h1>
+                    <h1 className='profile_title'>Your Saved Recipes</h1>
                     <a href={process.env.REACT_APP_LOGOUT}>
                         <button className='logout'></button>
                     </a>
                     <Link to='/search'>
-                        <button className='back-button'></button>
+                        <button className='home-button'></button>
                     </Link>
                 </nav>
 

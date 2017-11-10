@@ -10,10 +10,8 @@
  width:100%; 
  height:10vh;
  padding:10px;
- border-radius: 2px;
- background: rgba(239, 35, 62, 0.777);
+ background: rgba(239, 35, 62, 0.931);
  display: flex;
- border:2px solid rgb(239, 35, 62);
  align-items: center;
 }
 
@@ -23,9 +21,9 @@
     background-image: url('./../../assets/restaurant-4-48.png')
 }
 
-.mainPage_header{
+.mainPage_title{
     font-family: 'kaushan script';
-    font-size:40px;
+    font-size:44px;
     font-weight: 900;
 }
 
@@ -41,18 +39,17 @@
  height:5.7vh;
  margin:1px;
  border-radius: 5px;
- border:outset;
 }
 
 .mainPage_menu{
     width:10%;
     height:5vh;
-    margin-left:250px;
+    margin-left:200px;
 }
 
 .mainPage_menu_options{
     display: flex;
-    justify-content: space-around;
+    /* justify-content: space-around; */
 }
 
 .cook{
@@ -75,25 +72,21 @@
 }
 .mainPage_recipe_info{
     width:25%;
-    padding:10px;
     margin:10px;
     text-align: center;
-    border-radius:2px;
-    border:ridge;
-    background:rgba(251, 251, 251, 0.444);
+    line-height:25px;
+    background:rgb(251, 251, 251);
 }
 .mainPage_recipe_img{
-    width:250px;
-    height:200px;
-    margin:5px;
-    border-radius: 10px;
-    border:double black;
+    width:90%;
+    height:250px;
+    margin:10px;
 }
 
 .add_button{
     width:32px;
     height:32px;
-    margin:5px;
+    margin:10px;
     background: transparent;
     background-image: url('./../../assets/add.png')
 }

@@ -55,9 +55,9 @@ export default class NavBar extends Component {
             <main className='mainPage_background'>
                 <nav className='mainPage_navBackground'>
                     <div className='fork_and_spoon_logo'></div>
-                    <header className='mainPage_header'>Recipe Jar</header>
+                    <div className='mainPage_title'>Recipe Jar</div>
                     <input type='text'
-                            /* value={this.state.userInput} */
+                        /* value={this.state.userInput} */
                         placeholder='Search by Ingredients/Recipe Name'
                         className='input_box'
                         onChange={(e) => this.handleChange(e)}
@@ -88,12 +88,13 @@ export default class NavBar extends Component {
 function RecipeCard(props) {
     return (
         <div className='mainPage_recipe_info'>
-            <h1>{props.title}</h1>
+            <h2>{props.title}</h2>
             <Link to={`/recipe/detail/${props.recipe_id}`}>
                 <img className='mainPage_recipe_img'
                     src={props.image_url}
                     alt='recipe pic' />
             </Link>
+
             <h2>Social Rank: {Math.floor(props.social_rank)}</h2>
             <button
                 onClick={() => props.handleAddToFavorites(props.recipe_id)}
