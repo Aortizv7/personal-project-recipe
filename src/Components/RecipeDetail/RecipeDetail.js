@@ -35,7 +35,7 @@ export default class RecipeDetail extends Component {
             })
             return (
                 <div key={i} className='recipe_info'>
-                    <h2>{e.title}</h2>
+                    <h2 className='title'>{e.title}</h2>
 
                     <img src={e.image_url} alt='food' className='recipeDetail_img' />
                     <button

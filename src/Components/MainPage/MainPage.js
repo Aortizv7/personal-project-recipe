@@ -88,14 +88,16 @@ export default class NavBar extends Component {
 function RecipeCard(props) {
     return (
         <div className='mainPage_recipe_info'>
-            <h2>{props.title}</h2>
+           
+                <h2 className='title'>{props.title}</h2>
+            
             <Link to={`/recipe/detail/${props.recipe_id}`}>
                 <img className='mainPage_recipe_img'
                     src={props.image_url}
                     alt='recipe pic' />
             </Link>
 
-            <h2>Social Rank: {Math.floor(props.social_rank)}</h2>
+            <h3>Rating: {Math.floor(props.social_rank)}</h3>
             <button
                 onClick={() => props.handleAddToFavorites(props.recipe_id)}
                 className='add_button'>

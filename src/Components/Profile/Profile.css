@@ -1,9 +1,21 @@
 .profile_background{
     width:100%;
-    height:110vh;
+    height:100vh;
     align-self: center;
     overflow: scroll;
     background-repeat: no-repeat;
+}
+.profile_background::after{
+    content:'';
+    width:100%;
+    height:100%;
+    opacity:0.5;
+    z-index:-1; 
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
     background-image: url('./../../assets/brooke-lark-429481.jpg')
 }
 .profileNav{
@@ -16,10 +28,9 @@
 }
 
 .profile_title{
-    width:85%;
-    text-align: center;
+    width:80%;
     font-size:60px;
-    margin-left:450px;
+    text-align: center;
 }
 .remove_button{
     width:32px;
@@ -43,7 +54,7 @@
 }
 .favorite_recipes{
     width:100%;
-    margin-top:50px;
+    margin-top:30px;
     overflow: scroll;
     display: flex;
     flex-wrap: wrap;
@@ -52,6 +63,7 @@
 .profile_recipe_card{
     width:25%;
     margin:10px;
+    padding:5px;
     display: flex;
     flex-direction: column;
     justify-content: center;

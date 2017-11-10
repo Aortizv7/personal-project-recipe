@@ -61,7 +61,7 @@ export default class Profile extends Component {
         let favoriteRecipes = this.state.recipes.map((e, i) => {
             return (
                 <div key={i} className='profile_recipe_card'>
-                    <h2>{e.title}</h2>
+                    <h2 className='title'>{e.title}</h2>
                     <img src={e.image_url} alt='recipePic' className='mainPage_recipe_img' />
                     <button className='remove_button'
                         onClick={() => this.handleRemoveFromFavorites(e.recipe_id)}>
