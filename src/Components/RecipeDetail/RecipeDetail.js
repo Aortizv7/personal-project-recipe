@@ -75,6 +75,7 @@ export default class RecipeDetail extends Component {
                     </div>
                 </nav>
                 {individualRecipe}
+                <footer className='footer'></footer>
             </div>
         )
     }

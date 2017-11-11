@@ -80,6 +80,7 @@ export default class NavBar extends Component {
                         {filteredRecipes}
                     </div>
                 </div>
+                <footer className='footer'></footer>
             </main>
         )
     }

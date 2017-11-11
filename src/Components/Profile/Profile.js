@@ -82,6 +82,7 @@ export default class Profile extends Component {
                 <section className='favorite_recipes'>
                     {favoriteRecipes}
                 </section>
+                <footer className='footer'></footer>
             </div>
         )
     }
