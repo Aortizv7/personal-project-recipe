@@ -30,24 +30,21 @@ export default class Profile extends Component {
     }
 
     handleRemoveFromFavorites(id) {
+        var array = []
         removeFromFavorites(id).then((response) => {
-            // getFavorites().then(res => {
-            //     var array = []
-            //     res.data.forEach((e, i) => {
-            //         getRecipeDetail(e.recipe_id).then(response => {
-            //             console.log(array)
-            //                 array = array.push(response.data.recipe)
-            //                 console.log(array)
-
-            //             this.setState({
-            //                 recipes: array
-            //             })
-            //         })
-            //     })
-            // })
+            getFavorites().then(res => {
+                res.data.forEach((e, i) => {
+                    getRecipeDetail(e.recipe_id).then(response => {
+                        array.push(response.data.recipe)
+                        this.setState({
+                            recipes: array
+                        })
+                    })
+                })
+            })
         })
     }
-    
+
 
     render() {
         console.log(this.state.recipes)
