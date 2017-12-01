@@ -9,8 +9,8 @@ align-items: center;
 justify-content: space-around;
 }
 
-.home_header{
-    font-size:95px;
+.home_title{
+    font-size:85px;
     width:60%;
     font-family:'Kaushan script';
     padding:30px;

@@ -8,7 +8,7 @@ export default class Home extends Component {
             <div className='home_background'>
                 <div>
                     <Typist>
-                        <header className='home_header'> Cooking with Love, Provides food for the Soul!</header>
+                        <section className='home_title'> Cooking with Love, Provides food for the Soul!</section>
                     </Typist>
                 </div>
                 <div>

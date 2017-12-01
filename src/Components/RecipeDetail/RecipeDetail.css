@@ -24,6 +24,8 @@
 
 .recipeDetail_nav{
     width:100%;
+    position:fixed;
+    top:0;
     height:6vh;
     padding:5px;
     display: flex;
@@ -41,7 +43,7 @@
 .recipeDetail_middle_title{
     width:45%;
     height:10vh;
-    font-size:60px;
+    font-size:50px;
     display: flex;
     align-items: center;
 }
