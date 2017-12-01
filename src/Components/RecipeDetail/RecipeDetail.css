@@ -39,7 +39,7 @@
 
 }
 .recipeDetail_middle_title{
-    width:50%;
+    width:45%;
     height:10vh;
     font-size:60px;
     display: flex;
@@ -51,9 +51,9 @@
     align-items: center;
 }
 .recipe_info{
-    width:40%;
-    margin-top:50px;
-    padding:30px;
+    width:30%;
+    margin-top:80px;
+    padding:25px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -63,7 +63,7 @@
 
 .recipeDetail_img{
     width:90%;
-    height:450px;
+    height:350px;
     margin:5px;
 }
 
