@@ -1,13 +1,13 @@
 .profile_background{
     width:100%;
-    height:100vh;
+    height:120vh;
     overflow: scroll;
     background-repeat: no-repeat;
 }
 .profile_background::after{
     content:'';
     width:100%;
-    height:100%;
+    height:140%;
     opacity:0.5;
     z-index:-1; 
     top: 0;
