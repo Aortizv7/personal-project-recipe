@@ -45,12 +45,11 @@ export default class RecipeDetail extends Component {
                     <Link to='/search'>
                         <button className='back_button'></button>
                     </Link>
-                    <h2 >Published By : {e.publisher}</h2>
-                    <h2>Ingredients : {ingredients}</h2>
+                    <h4>Published By : {e.publisher}</h4>
+                    <h4>Ingredients : {ingredients}</h4>
                     <div className='forwarding'>
-                        <h2>Show me Detailed Instructions</h2>
+                        <h4>Show me Detailed Instructions</h4>
                         <a href={e.source_url} target='_blank'><h2 className='forward_button'></h2></a>
-
                     </div>
                 </div>
             )

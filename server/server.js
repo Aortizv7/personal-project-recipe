@@ -116,6 +116,7 @@ app.get('/api/favorites', (req, res) => {
 })
 
 
+
 app.post('/api/favorites/add/:id', (req, res) => {
     var db = app.get('db');
     let { id } = req.params;

@@ -54,6 +54,7 @@
 }
 .recipe_info{
     width:30%;
+    height:90%;
     margin-top:80px;
     padding:25px;
     display: flex;
