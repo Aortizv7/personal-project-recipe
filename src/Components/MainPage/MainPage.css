@@ -3,7 +3,7 @@
  height:100vh;
  overflow: scroll;
  }
- .mainPage_background::after{
+ .mainPage_background::before{
      content:'';
      width:100%;
      height:100%;
