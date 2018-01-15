@@ -24,7 +24,8 @@ export default class NavBar extends Component {
     handleClick() {
         searchAllRecipes(this.state.userInput).then(res => {
             this.setState({
-                recipes: res.data.recipes
+                recipes: res.data.recipes,
+                userInput:''
             })
         })
     }
