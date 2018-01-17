@@ -2,6 +2,7 @@ import axios from 'axios';
 
 
 //these are all the axios calls for the api//
+
 export function getAllRecipes() {
     return axios.get('/api/search')
 }

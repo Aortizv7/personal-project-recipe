@@ -19,10 +19,10 @@ export default class Home extends Component {
                 </div>
                 <div className='demo_credentials'>
                     <h1>Demo Credentials</h1>
-                    <h2>Select Yahoo</h2>
+                    <h2>Select >>> Yahoo</h2>
                     <ul>
-                        <li>Email:demo_jd7@yahoo.com</li>
-                        <li>Password:Password!17</li>
+                        <li>Email >>> demo_jd7@yahoo.com</li>
+                        <li>Password >>> Password!17</li>
                     </ul>
                 </div>
             </div>
